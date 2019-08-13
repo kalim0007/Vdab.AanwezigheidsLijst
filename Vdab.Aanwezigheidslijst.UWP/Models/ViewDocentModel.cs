@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Vdab.Aanwezigheidslijst.BusinessLogic;
 using Vdab.Aanwezigheidslijst.BusinessLogic.Contracts;
 
 namespace Vdab.Aanwezigheidslijst.UWP.Models
 {
-    class CreateDocentModels
+    public class ViewDocentModel
     {
         private readonly DocentService _docentService = new DocentService();
-        public readonly CreateDocent Docent = new CreateDocent();
-        //fdssdf
-        public void CreateDocent()
+        public readonly ViewDocent Docent = new ViewDocent();
+        public void DeleteDocent(ViewDocent docent)
         {
-            _docentService.Create(Docent);
+            _docentService.Delete(docent);
+        }
+        public ObservableCollection<ViewDocent> GetDocent()
+        {
+           return _docentService.GetDocent();
         }
     }
 }

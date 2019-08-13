@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Vdab.Aanwezigheidslijst.UWP.Commands
 {
-    class RelayCommand
+    public class RelayCommand : ICommand
     {
         private Action _execute;
         private Predicate<object> _canExecute;
